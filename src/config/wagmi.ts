@@ -1,4 +1,11 @@
-import { getDefaultConfig } from '@rainbow-me/rainbowkit';
+import { connectorsForWallets } from '@rainbow-me/rainbowkit';
+import {
+  metaMaskWallet,
+  rainbowWallet,
+  walletConnectWallet,
+  injectedWallet,
+} from '@rainbow-me/rainbowkit/wallets';
+import { createConfig, http } from 'wagmi';
 
 const somniaMainnet = {
   id: 5031,
@@ -24,9 +31,29 @@ const somniaMainnet = {
   },
 } as const;
 
-export const config = getDefaultConfig({
-  appName: 'Somnia Multisender',
-  projectId: process.env.REACT_APP_WALLETCONNECT_PROJECT_ID || 'YOUR_PROJECT_ID',
+const connectors = connectorsForWallets(
+  [
+    {
+      groupName: 'Recommended',
+      wallets: [
+        metaMaskWallet,
+        rainbowWallet,
+        walletConnectWallet,
+        injectedWallet,
+      ],
+    },
+  ],
+  {
+    appName: 'Somnia Multisender',
+    projectId: process.env.REACT_APP_WALLETCONNECT_PROJECT_ID || 'YOUR_PROJECT_ID',
+  }
+);
+
+export const config = createConfig({
+  connectors,
   chains: [somniaMainnet],
+  transports: {
+    [somniaMainnet.id]: http(),
+  },
   ssr: false,
 });

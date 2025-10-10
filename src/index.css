@@ -402,3 +402,14 @@ button:disabled {
   font-size: 1.125rem;
   line-height: 1.75rem;
 }
+
+/* NetworkHelper responsive utilities */
+.flex-col {
+  flex-direction: column;
+}
+
+@media (min-width: 640px) {
+  .sm\:flex-row {
+    flex-direction: row;
+  }
+}

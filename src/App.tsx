@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Navigation } from './components/Navigation';
 import { RecipientInput } from './components/RecipientInput';
 import { TransactionPanel } from './components/TransactionPanel';
+import { NetworkHelper } from './components/NetworkHelper';
 import { Recipient } from './types';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-100">
       <Navigation />
+      <NetworkHelper />
 
       <div className="container px-4 py-8">
         <div className="text-center mb-8">
@@ -17,6 +19,7 @@ function App() {
             Send SOMI or ERC20 tokens to multiple recipients in a single transaction
           </p>
         </div>
+
 
         <div className="grid grid-cols-1 gap-8" style={{maxWidth: '1200px', margin: '0 auto'}}>
           <div className="space-y-6">
