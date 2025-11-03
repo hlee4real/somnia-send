@@ -9,7 +9,6 @@ A decentralized application for sending SOMI tokens or ERC20 tokens to multiple 
 - **Wallet Integration**: Connect with MetaMask and other Web3 wallets via RainbowKit
 - **Smart Contract Interface**: Configurable contract address and ABI
 - **CSV File Upload**: Import recipients from CSV files with validation
-- **Transaction Tracking**: View transactions on Somnia Explorer
 
 ## Network Details
 
